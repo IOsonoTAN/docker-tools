@@ -2,15 +2,20 @@
 The one line shell script to building and running a docker container that related with Dockerfile using Node.js.
 
 ### Features
-- Git reset and clean everything before.
-- Create a docker image and running a container.
+- Git reset and clean everything before and refresh code from your git on default develop branch.
+- Create a docker image and running to be a container.
 - Just one line!
 
-### What this script need.
+### What this script need
 - Node.js
 - Node package manager (NPM)
 - Docker
 - Dockerfile
+
+### How to use
+~~~javascript
+sh docker_deploy.sh [*project_name*] [git_branch (optional)] [docker_port (optional)]
+~~~
 
 ### Get started
 - Create a new folder named "map-config".
@@ -51,7 +56,8 @@ PASSWORD_SALT=%(password.salt)s
 ~~~
 - Go to project's folder
 - Create Dockerfile
+- Finally, Run this shell script.
 ~~~json
-sh docker_deploy.sh
+sh docker_deploy.sh [*project_name*] [git_branch (optional)] [docker_port (optional)]
 ~~~
 - Enjoy your docker container!
