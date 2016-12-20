@@ -14,7 +14,7 @@ The one line shell script to building and running a docker container that relate
 
 ### How to use
 ~~~javascript
-sh docker_deploy.sh [*project_name*] [git_branch (optional)] [docker_port (optional)]
+sh docker_deploy.sh [project_name (required)] [git_branch (optional)] [docker_port (optional)]
 ~~~
 
 ### Get started
@@ -57,7 +57,7 @@ PASSWORD_SALT=%(password.salt)s
 - Go to project's folder
 - Create Dockerfile
 - Finally, Run this shell script.
-~~~json
-sh docker_deploy.sh [*project_name*] [git_branch (optional)] [docker_port (optional)]
+~~~javascript
+sh docker_deploy.sh [project_name (required)] [git_branch (optional)] [docker_port (optional)]
 ~~~
 - Enjoy your docker container!
