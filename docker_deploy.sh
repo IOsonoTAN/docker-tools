@@ -1,5 +1,5 @@
 printError () {
-  echo "\x1B[31m*** Error: $1\x1B[0m"
+  echo "Error: $1"
   exit;
 }
 
@@ -46,16 +46,16 @@ if [ $? -ne 0 ]; then
   printError "Can't copy id_rsa.";
 fi;
 
-echo "- Building a docker image ($DOCKER_IMG)";
-docker build -t $DOCKER_IMG:latest .;
-if [ $? -ne 0 ]; then
-  printError "Can't build a docker image.";
-fi;
-
 echo "- Mapping configs from map-config's folder.";
 node ../map-config/index.js .env_template  > docker/.env;
 if [ $? -ne 0 ]; then
   printError "Can't mapping the configs.";
+fi;
+
+echo "- Building a docker image ($DOCKER_IMG)";
+docker build -t $DOCKER_IMG:latest .;
+if [ $? -ne 0 ]; then
+  printError "Can't build a docker image.";
 fi;
 
 echo "- Remove old and run the container ($DOCKER_CNT)";
@@ -66,3 +66,6 @@ if [ $? -ne 0 ]; then
   echo "-- Running a new container";
   $CMD_DOCKER_RUN;
 fi;
+
+echo "- Removing a backup image";
+docker rmi $(docker images -f "dangling=true" -q);
