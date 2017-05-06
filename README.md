@@ -58,6 +58,6 @@ PASSWORD_SALT=%(password.salt)s
 - Create Dockerfile
 - Finally, Run this shell script.
 ~~~javascript
-sh docker_deploy.sh [project_name (required)] [git_branch (optional)] [docker_port (optional)]
+sh docker_deploy.sh project_name master 3000
 ~~~
 - Enjoy your docker container!
